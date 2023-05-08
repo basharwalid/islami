@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/UI/Home/hadeth/hadethData.dart';
 import 'package:islami/UI/Home/hadeth/hadethTitle.dart';
+// import 'package:islami/UI/Home/hadethContent/hadetContentWidget.dart';
+// import 'package:islami/UI/Home/hadethContent/hadethContentScreen.dart';
 
 class hadethTab extends StatefulWidget {
   @override
@@ -42,7 +44,7 @@ class _hadethTabState extends State<hadethTab> {
         Expanded(
             flex: 3,
             child: Container(
-              child: allhadethList.isEmpty?Center(child: CircularProgressIndicator(),):
+              child: allhadethList.isEmpty?const Center(child: CircularProgressIndicator(),):
                 ListView.separated(itemBuilder: (buildContext , index)
                   {
                     return hadethTitleWidget(allhadethList[index]);
