@@ -70,7 +70,7 @@ class _surahDetailsState extends State<surahDetails> {
   }
 
   void readfiles(int chapterindex) async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     String text =
         await rootBundle.loadString("assets/files/${chapterindex + 1}.txt");
     chapterContent = text.split("\n");

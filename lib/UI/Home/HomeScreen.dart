@@ -38,19 +38,19 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: const ImageIcon(AssetImage("assets/images/quran.png")),
-                label: "Quran"),
+                label: "القرآن"),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: const ImageIcon(AssetImage("assets/images/quran-quran-svgrepo-com.png")),
-                label: "Hadeth"),
+                label: "الأحاديث"),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: const ImageIcon(AssetImage("assets/images/sebha.png")),
-                label: "Tasbeh"),
+                label: "التسبيح"),
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: const ImageIcon(AssetImage("assets/images/radio.png")),
-                label: "Radio"),
+                label: "الراديو"),
           ],
         ),
         body: tabs[SelectedTabIndex],
