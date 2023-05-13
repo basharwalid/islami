@@ -5,41 +5,47 @@ class tasbehTab extends StatefulWidget {
   State<tasbehTab> createState() => _tasbehTabState();
 }
 
-class _tasbehTabState extends State<tasbehTab> {
-  double sebha_angle=0;
+class _tasbehTabState extends State<tasbehTab> with TickerProviderStateMixin {
+  double sebhaAngle = 0;
   List<String> tasbehat = ["سبحان الله", "استغفر الله", "الحمدلله"];
   int index = 0;
   int counter = 0;
 
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+        value: sebhaAngle,
+        duration: const Duration(milliseconds: 2000),
+        vsync: this);
+  }
+  @override
+  void dispose() {
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage("assets/images/main_background.png"),
-                  fit: BoxFit.fill)),
-        ),
-        Stack(
-          children: [
-            Container(
-                margin: const EdgeInsets.only(top: 50, left: 105),
-                child: Image.asset("assets/images/sebha_head.png")),
-            InkWell(
-              onTap: (){
-                  sebha_angle+=1;
-                  setState(() {});
-              },
-              child: Transform.rotate(
-                angle: sebha_angle,
-                child: Container(
-                  margin: const EdgeInsets.only(top: 130),
-                    child: Image.asset("assets/images/sebha_body.png")
-                ),
-              ),
+        Row(),
+        Image.asset("assets/images/sebah head.png"),
+        InkWell(
+          borderRadius: BorderRadius.circular(100),
+          onTap: () {
+            setState(() {
+              sebhaCounter();
+              sebhaAngle += 12;
+            });
+          },
+          child: AnimatedBuilder(
+            animation: animationController,
+            builder: (context, child) => Transform.rotate(
+              angle: sebhaAngle,
+              child: Image.asset("assets/images/body of seb7a.png"),
             ),
-          ],
+          )
         ),
         Container(
             margin: const EdgeInsets.only(top: 50),
@@ -79,13 +85,17 @@ class _tasbehTabState extends State<tasbehTab> {
                   )),
               onPressed: () {
                 setState(() {
+                  sebhaAngle += 12;
                   sebhaCounter();
-                  changetasbeh();
+                  changeTasbeh();
                 });
               },
-              child: Text(
-                tasbehat[index],
-                style: const TextStyle(fontSize: 20),
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  tasbehat[index],
+                  style: const TextStyle(fontSize: 20),
+                ),
               )),
         )
       ],
@@ -98,13 +108,16 @@ class _tasbehTabState extends State<tasbehTab> {
     } else {
       counter++;
     }
+    changeTasbeh();
   }
 
-  void changetasbeh() {
-    if (counter == 0 && index < tasbehat.length) {
-      index++;
-    }else if(index==2){
-      index=0;
+  void changeTasbeh() {
+    if (counter==33){
+      index ++;
+      if(index==3){
+        index = 0;
+      }
+      counter = 0;
     }
   }
 }
