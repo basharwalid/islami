@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/UI/SurahDetails/VerseContent.dart';
+import 'package:provider/provider.dart';
+
+import '../../Providers/ThemeProvider.dart';
+import '../My_theme_Data.dart';
 
 class surahDetails extends StatefulWidget {
   static const String routeName = "Surah Details Screen";
@@ -14,6 +18,7 @@ class _surahDetailsState extends State<surahDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<ThemeProvider>(context);
     SuraDetailsScreenArguments suraDetailsScreenArguments =
         ModalRoute.of(context)!.settings.arguments
             as SuraDetailsScreenArguments;
@@ -21,9 +26,9 @@ class _surahDetailsState extends State<surahDetails> {
       readfiles(suraDetailsScreenArguments.index);
     }
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
           image: DecorationImage(
-              image: AssetImage("assets/images/main_background.png"),
+              image: AssetImage(provider.themeMode == ThemeMode.light ? "assets/images/main_background.png" : "assets/images/darkThemeBackground.png"),
               fit: BoxFit.fill)),
       child: Scaffold(
         appBar: AppBar(
@@ -36,7 +41,6 @@ class _surahDetailsState extends State<surahDetails> {
                 padding: const EdgeInsets.only(top: 50),
                 child: Card(
                   margin: const EdgeInsets.symmetric(horizontal: 12 , vertical: 35),
-                  color: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)
                   ),

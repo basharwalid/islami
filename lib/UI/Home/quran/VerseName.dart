@@ -14,9 +14,7 @@ class verseName extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         child: Text(title ,
-          style: const TextStyle(
-            fontSize: 24,
-          ),
+          style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
     );

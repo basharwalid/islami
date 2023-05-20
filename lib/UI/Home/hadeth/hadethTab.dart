@@ -26,18 +26,16 @@ class _hadethTabState extends State<hadethTab> {
         Container(
           width: double.infinity,
           height: 3,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).accentColor,
           margin: const EdgeInsets.all(10),
         ),
-        const Text("الأحاديث" ,
-          style: TextStyle(
-            fontSize: 24,
-          ),
+         Text("الأحاديث" ,
+          style: Theme.of(context).textTheme.headline5,
         ),
         Container(
           width: double.infinity,
           height: 3,
-          color: Theme.of(context).primaryColor,
+          color: Theme.of(context).accentColor,
           margin: const EdgeInsets.all(10),
 
         ),
@@ -53,7 +51,7 @@ class _hadethTabState extends State<hadethTab> {
                   separatorBuilder:(buildContext , index)
                   {
                     return Container(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).accentColor,
                       width: double.infinity,
                       height: 2,
                       margin: const EdgeInsets.symmetric(horizontal: 24),

@@ -22,17 +22,16 @@ class _tasbehTabState extends State<tasbehTab> with TickerProviderStateMixin {
         vsync: this);
   }
   @override
-  void dispose() {
-    super.dispose();
-  }
-  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Row(),
-        Image.asset("assets/images/sebah head.png"),
+        Container(
+          padding: EdgeInsets.only(left: 40 ,top: 20),
+            child: Image.asset("assets/images/sebah head.png")
+        ),
         InkWell(
-          borderRadius: BorderRadius.circular(100),
+          borderRadius: BorderRadius.circular(120),
           onTap: () {
             setState(() {
               sebhaCounter();

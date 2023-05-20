@@ -10,9 +10,7 @@ class VerseContent extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(content ,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 24,
-        ),
+        style: Theme.of(context).textTheme.bodyText2,
       ),
     );
   }
